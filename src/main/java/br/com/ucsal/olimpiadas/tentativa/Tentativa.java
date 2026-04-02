@@ -1,7 +1,9 @@
-package br.com.ucsal.olimpiadas;
+package br.com.ucsal.olimpiadas.tentativa;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.ucsal.olimpiadas.Resposta;
 
 public class Tentativa {
 	private long id;

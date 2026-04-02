@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import br.com.ucsal.olimpiadas.participante.Participante;
+import br.com.ucsal.olimpiadas.participante.ParticipanteRepository;
+import br.com.ucsal.olimpiadas.participante.ParticipanteRepositoryInterface;
+import br.com.ucsal.olimpiadas.participante.ParticipanteService;
+import br.com.ucsal.olimpiadas.prova.Prova;
+import br.com.ucsal.olimpiadas.questao.Questao;
+import br.com.ucsal.olimpiadas.tentativa.Tentativa;
+
 //Comentário teste
 
 
@@ -13,6 +21,7 @@ public class App {
 	static long proximaProvaId = 1;
 	static long proximaQuestaoId = 1;
 	static long proximaTentativaId = 1;
+	private static ParticipanteService participanteService;
 
 	static final List<Participante> participantes = new ArrayList<>();
 	static final List<Prova> provas = new ArrayList<>();
@@ -22,7 +31,10 @@ public class App {
 	private static final Scanner in = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		seed();
+		
+		ParticipanteRepositoryInterface repo = new ParticipanteRepository();
+        participanteService = new ParticipanteService(repo);
+		//seed();
 
 		while (true) {
 			System.out.println("\n=== OLIMPÍADA DE QUESTÕES (V1) ===");
@@ -36,10 +48,10 @@ public class App {
 
 			switch (in.nextLine()) {
 			case "1" -> cadastrarParticipante();
-			case "2" -> cadastrarProva();
-			case "3" -> cadastrarQuestao();
-			case "4" -> aplicarProva();
-			case "5" -> listarTentativas();
+			//case "2" -> cadastrarProva();
+			//case "3" -> cadastrarQuestao();
+			//case "4" -> aplicarProva();
+			//case "5" -> listarTentativas();
 			case "0" -> {
 				System.out.println("tchau");
 				return;
@@ -49,34 +61,39 @@ public class App {
 		}
 	}
 
-	static void cadastrarParticipante() {
-		System.out.print("Nome: ");
-		var nome = in.nextLine();
+	//Cadastrar Participante
 
-		System.out.print("Email (opcional): ");
-		var email = in.nextLine();
+	 static void cadastrarParticipante() {
 
-		if (nome == null || nome.isBlank()) {
-			System.out.println("nome inválido");
-			return;
-		}
+    System.out.print("Nome: ");
+    var nome = in.nextLine();
 
-		var p = new Participante();
-		p.setId(proximoParticipanteId++);
-		p.setNome(nome);
-		p.setEmail(email);
+    System.out.print("Email (opcional): ");
+    var email = in.nextLine();
 
-		participantes.add(p);
-		System.out.println("Participante cadastrado: " + p.getId());
-	}
+    if (nome == null || nome.isBlank()) {
+        System.out.println("nome inválido");
+        return;
+    }
 
+    Participante p = participanteService.cadastrar(nome, email);
+
+    System.out.println("Participante cadastrado:\n" +
+            "ID - " + p.getId() +
+            "\nNome - " + p.getNome());
+}
+
+	/*/
+
+	//Cadastrar Prova
+	
 	static void cadastrarProva() {
 		System.out.print("Título da prova: ");
 		var titulo = in.nextLine();
 
 		if (titulo == null || titulo.isBlank()) {
 			System.out.println("título inválido");
-			return;
+			return;/
 		}
 
 		var prova = new Prova();
@@ -86,6 +103,8 @@ public class App {
 		provas.add(prova);
 		System.out.println("Prova criada: " + prova.getId());
 	}
+
+	//Cadastrar Questão
 
 	static void cadastrarQuestao() {
 		if (provas.isEmpty()) {
@@ -128,6 +147,8 @@ public class App {
 		System.out.println("Questão cadastrada: " + q.getId() + " (na prova " + provaId + ")");
 	}
 
+
+	//Aplicar Prova
 
 	static void aplicarProva() {
 		if (participantes.isEmpty()) {
@@ -196,6 +217,7 @@ public class App {
 		System.out.println("Nota (acertos): " + nota + " / " + tentativa.getRespostas().size());
 	}
 
+//Calcular nota
 	public static int calcularNota(Tentativa tentativa) {
 		int acertos = 0;
 		for (var r : tentativa.getRespostas()) {
@@ -205,6 +227,8 @@ public class App {
 		return acertos;
 	}
 
+	//Listar Tentativas
+
 	static void listarTentativas() {
 		System.out.println("\n--- Tentativas ---");
 		for (var t : tentativas) {
@@ -213,7 +237,7 @@ public class App {
 		}
 	}
 
-
+// Escolher Participante
 	static Long escolherParticipante() {
 		System.out.println("\nParticipantes:");
 		for (var p : participantes) {
@@ -235,6 +259,7 @@ public class App {
 		}
 	}
 
+	//Escolher Prova
 	static Long escolherProva() {
 		System.out.println("\nProvas:");
 		for (var p : provas) {
@@ -256,6 +281,7 @@ public class App {
 		}
 	}
 
+	//Imprimir tabuleiro
 	static void imprimirTabuleiroFen(String fen) {
 
 		String parteTabuleiro = fen.split(" ")[0];
@@ -290,6 +316,7 @@ public class App {
 		System.out.println();
 	}
 
+	//Seed(Lembrar de ver com mais atenção)
 
 	static void seed() {
 
@@ -315,5 +342,5 @@ public class App {
 		q1.setAlternativaCorreta('C');
 
 		questoes.add(q1);
-	}
+	}/*/ 
 }
