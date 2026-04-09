@@ -60,6 +60,7 @@ Redução de acoplamento – dependências injetadas via construtor (App → App
 
 ## Estrutura do Projeto
 
+
 br.com.ucsal.olimpiadas
 │
 ├── App.java
@@ -103,6 +104,7 @@ br.com.ucsal.olimpiadas
 └── java
 └── br.com.ucsal.olimpiadas
 └── ExemploTest.java
+
 ---
 
 ## Fluxo de Execução da Aplicação
