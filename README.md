@@ -176,6 +176,8 @@ A versão refatorada separa claramente a responsabilidade de inicialização, in
 | (persistência em memória) |
 +------------------------+
 
+```
+
 ---
 
 ## Explicação do Fluxo
