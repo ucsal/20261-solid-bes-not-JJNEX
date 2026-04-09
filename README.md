@@ -13,16 +13,20 @@ A versão anterior concentrava todas as responsabilidades em uma única classe A
 Atualização na classe App – Classe de inicialização da aplicação.
 Responsável apenas por criar serviços, repositórios e iniciar o menu.
 Cumpre Single Responsibility Principle (SRP): apenas inicialização e injeção de dependências.
+
 AppMenu – Classe de interface de usuário e controle de fluxo.
 Contém apenas lógica de interação com o usuário e chamadas aos serviços.
 Toda a lógica de negócio e persistência foi removida da classe principal, facilitando testes e alterações futuras.
+
 Serviços e Repositórios
 ParticipanteService, ProvaService, QuestaoService, RespostaService, TentativaService
 Cada serviço encapsula operações de CRUD e lógica de negócio específica, permitindo Open/Closed Principle (OCP): novas funcionalidades podem ser adicionadas sem alterar classes existentes.
 Repositórios concretos (ParticipanteRepository, etc.) são injetados nos serviços, respeitando Dependency Inversion Principle (DIP).
+
 AplicacaoProva
 Responsável apenas por aplicar uma prova e gerar tentativas.
 A separação desta lógica da UI e do menu reforça SRP.
+
 TabuleiroPrinter
 Classe dedicada apenas a imprimir o tabuleiro de xadrez, isolando a responsabilidade de apresentação visual.
 
