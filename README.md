@@ -11,7 +11,9 @@ Este projeto simula uma olimpíada de questões, permitindo o cadastro de partic
 A versão anterior concentrava todas as responsabilidades em uma única classe App, com métodos estáticos e listas globais, o que dificultava manutenção e expansão. A versão refatorada introduziu:
 
 Atualização na classe App – Classe de inicialização da aplicação.
+
 Responsável apenas por criar serviços, repositórios e iniciar o menu.
+
 Cumpre Single Responsibility Principle (SRP): apenas inicialização e injeção de dependências.
 
 AppMenu – Classe de interface de usuário e controle de fluxo.
