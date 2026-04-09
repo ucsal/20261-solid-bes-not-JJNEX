@@ -13,7 +13,6 @@ A versão anterior concentrava todas as responsabilidades em uma única classe A
 Atualização na classe App – Classe de inicialização da aplicação.
 
 Responsável apenas por criar serviços, repositórios e iniciar o menu.
-
 Cumpre Single Responsibility Principle (SRP): apenas inicialização e injeção de dependências.
 
 AppMenu – Classe de interface de usuário e controle de fluxo.
