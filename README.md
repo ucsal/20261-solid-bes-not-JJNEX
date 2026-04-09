@@ -29,16 +29,6 @@ Classe dedicada apenas a imprimir o tabuleiro de xadrez, isolando a responsabili
 ---
 
 ## Aplicação dos Princípios SOLID
-Princípio	Como foi aplicado na versão refatorada
-SRP (Single Responsibility Principle)	Cada classe tem uma responsabilidade clara: App inicializa, AppMenu controla UI, serviços manipulam dados, AplicacaoProva aplica provas, TabuleiroPrinter imprime tabuleiros.
-OCP (Open/Closed Principle)	Serviços podem ser estendidos sem modificar classes existentes. Por exemplo, é possível adicionar novas regras de validação ou cálculos de nota sem alterar AppMenu.
-LSP (Liskov Substitution Principle)	Repositórios implementam interfaces (RepositoryInterface), permitindo trocar implementações (ex: persistência em memória ou banco de dados) sem alterar a lógica do serviço.
-ISP (Interface Segregation Principle)	Interfaces são específicas para cada entidade (ParticipanteRepositoryInterface), evitando métodos desnecessários para classes que não usam todas as operações.
-DIP (Dependency Inversion Principle)	Classes de alto nível (AppMenu, AplicacaoProva) dependem de abstrações (serviços e interfaces), não de implementações concretas. Isso facilita testes unitários e substituição de implementações.
-
----
-
-## Aplicação dos Princípios SOLID
 
 | Princípio | Como foi aplicado na versão refatorada |
 |-----------|----------------------------------------|
@@ -67,43 +57,43 @@ br.com.ucsal.olimpiadas
 ├── AppMenu.java
 │
 ├── participante
-│ ├── Participante.java
-│ ├── ParticipanteService.java
-│ ├── ParticipanteRepository.java
-│ └── ParticipanteRepositoryInterface.java
+│   ├── Participante.java
+│   ├── ParticipanteService.java
+│   ├── ParticipanteRepository.java
+│   └── ParticipanteRepositoryInterface.java
 │
 ├── prova
-│ ├── Prova.java
-│ ├── ProvaService.java
-│ ├── ProvaRepository.java
-│ ├── ProvaRepositoryInterface.java
-│ └── AplicacaoProva.java
+│   ├── Prova.java
+│   ├── ProvaService.java
+│   ├── ProvaRepository.java
+│   ├── ProvaRepositoryInterface.java
+│   └── AplicacaoProva.java
 │
 ├── questao
-│ ├── Questao.java
-│ ├── QuestaoService.java
-│ ├── QuestaoRepository.java
-│ └── QuestaoRepositoryInterface.java
+│   ├── Questao.java
+│   ├── QuestaoService.java
+│   ├── QuestaoRepository.java
+│   └── QuestaoRepositoryInterface.java
 │
 ├── resposta
-│ ├── Resposta.java
-│ ├── RespostaService.java
-│ ├── RespostaRepository.java
-│ └── RespostaRepositoryInterface.java
+│   ├── Resposta.java
+│   ├── RespostaService.java
+│   ├── RespostaRepository.java
+│   └── RespostaRepositoryInterface.java
 │
 ├── tentativa
-│ ├── Tentativa.java
-│ ├── TentativaService.java
-│ ├── TentativaRepository.java
-│ └── TentativaRepositoryInterface.java
+│   ├── Tentativa.java
+│   ├── TentativaService.java
+│   ├── TentativaRepository.java
+│   └── TentativaRepositoryInterface.java
 │
 ├── tabuleiro
-│ └── TabuleiroPrinter.java
+│   └── TabuleiroPrinter.java
 │
 └── test
-└── java
-└── br.com.ucsal.olimpiadas
-└── ExemploTest.java
+    └── java
+        └── br.com.ucsal.olimpiadas
+            └── ExemploTest.java
 
 ---
 
