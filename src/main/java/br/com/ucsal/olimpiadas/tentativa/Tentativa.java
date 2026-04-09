@@ -3,14 +3,14 @@ package br.com.ucsal.olimpiadas.tentativa;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ucsal.olimpiadas.Resposta;
+import br.com.ucsal.olimpiadas.resposta.Resposta;
 
 public class Tentativa {
 	private long id;
 	private long participanteId;
 	private long provaId;
 
-	private final List<Resposta> respostas = new ArrayList<>();
+	private List<Resposta> respostas = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -38,6 +38,10 @@ public class Tentativa {
 
 	public List<Resposta> getRespostas() {
 		return respostas;
+	}
+
+	public void setRespostas(List<Resposta> respostas) {
+		this.respostas = respostas;
 	}
 
 }

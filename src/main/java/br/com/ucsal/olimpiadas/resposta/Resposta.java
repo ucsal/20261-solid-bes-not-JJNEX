@@ -1,10 +1,19 @@
-package br.com.ucsal.olimpiadas;
+package br.com.ucsal.olimpiadas.resposta;
 
 public class Resposta {
 
+	private long id;
 	private long questaoId;
 	private char alternativaMarcada;
 	private boolean correta;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public long getQuestaoId() {
 		return questaoId;
