@@ -212,11 +212,15 @@ Implementados via interfaces, permitindo substituição futura (ex: banco de dad
 
 Com essa estrutura, o sistema evoluiu de um modelo monolítico (tudo em uma classe) para uma arquitetura em camadas:
 
+```
+
 UI (AppMenu)
    ↓
 Services (regras de negócio)
    ↓
 Repositories (dados)
+
+```
 
 
 
