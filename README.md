@@ -142,6 +142,8 @@ br.com.ucsal.olimpiadas
 
 A versão refatorada separa claramente a responsabilidade de inicialização, interface e regras de negócio. O fluxo de execução funciona da seguinte forma:
 
+```
+
         +----------------+
         |      App       |
         | (main apenas)  |
